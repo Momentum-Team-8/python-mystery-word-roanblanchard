@@ -33,24 +33,18 @@ def mystery_word_game():
         if len(player_guess) > 1:
             print("Your guess must be one letter!")
             player_guess = input("What letter would you like to guess? ")
-        # if player_guess in word_list:
-        #     current_progress.append(player_guess)
-        #     past_guesses.append(player_guess)
-        # elif player_guess in past_guesses:
-        #     print("This letter has already been guessed! Try again.")
-        #     pass
-        # elif player_guess not in word_list:
-        #     tries += 1
-        #     print("Letter not in word.")
         
         for x in word_list: 
-            if player_guess == x or player_guess in correct_guesses:
+            if player_guess == x:
                 current_progress.append(player_guess)
                 correct_guesses.append(player_guess)
+            elif x in correct_guesses:
+                current_progress.append(x)
             else:
                 current_progress.append("_")
                 incorrect_guesses.append(player_guess)
         print(current_progress)
+
 
 
 
