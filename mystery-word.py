@@ -13,13 +13,20 @@ HARD_WORDS = [
     'parameter', 'identity', 'exclusive', 'understand', 'translate', 'chauvinist', 'withdrawl', 'evolution', 'domestic', 'catalogue', 'conversation', 'coalition', 'competence', 'freighter', 'cooperative', 'abundant', 'blackmail', 'isolation', 'communist', 'infinite', 'treasurer', 'governor',
 ]
 
+level = input("Select difficulty: 1 for easy, 2 for medium, 3 for hard ")
+if level == "1":
+    word_choice = (random.choice(EASY_WORDS))
+if level == "2":
+    word_choice = (random.choice(NORM_WORDS))
+if level == "3":
+    word_choice = (random.choice(HARD_WORDS))
+
 
 def mystery_word_game():
     tries = 0
-    test = "word"
     word_list = []
+    test = word_choice
     
-    # word_guess = ""
     for x in test:
         word_list.append(x)
     print(test)
@@ -44,6 +51,9 @@ def mystery_word_game():
             else:
                 current_progress.append("_")
                 incorrect_guesses.append(player_guess)
+        if current_progress == word_list:
+            print("You win!! Good job.")
+            break
         if tries == 8:
             print("You lose!! You get nothing!")
             print("Your word was: " + test)
