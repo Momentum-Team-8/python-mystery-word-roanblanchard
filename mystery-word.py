@@ -28,11 +28,12 @@ def mystery_word_game():
     incorrect_guesses = []
     while tries != 8:
         current_progress = []
-        tries += 1
         player_guess = input("What letter would you like to guess? ")
         if len(player_guess) > 1:
             print("Your guess must be one letter!")
             player_guess = input("What letter would you like to guess? ")
+        if player_guess not in word_list:
+            tries += 1
         
         for x in word_list: 
             if player_guess == x:
@@ -43,7 +44,12 @@ def mystery_word_game():
             else:
                 current_progress.append("_")
                 incorrect_guesses.append(player_guess)
+        if tries == 8:
+            print("You lose!! You get nothing!")
+            print("Your word was: " + test)
+            break
         print(current_progress)
+
 
 
 
