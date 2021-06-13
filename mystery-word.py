@@ -31,12 +31,14 @@ def mystery_word_game():
         word_list.append(x)
 
     print("Your word is " + str(len(word_list)) + " characters long.")
+    print(word_choice)
     
     correct_guesses = []
     incorrect_guesses = []
     while tries != 8:
         current_progress = []
         player_guess = input("What letter would you like to guess? ")
+        player_guess = player_guess.lower()
         if len(player_guess) > 1:
             print("Your guess must be one letter!")
             player_guess = input("What letter would you like to guess? ")
