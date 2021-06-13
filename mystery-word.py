@@ -13,16 +13,16 @@ HARD_WORDS = [
     'parameter', 'identity', 'exclusive', 'understand', 'translate', 'chauvinist', 'withdrawl', 'evolution', 'domestic', 'catalogue', 'conversation', 'coalition', 'competence', 'freighter', 'cooperative', 'abundant', 'blackmail', 'isolation', 'communist', 'infinite', 'treasurer', 'governor',
 ]
 
-level = input("Select difficulty: 1 for easy, 2 for medium, 3 for hard ")
-if level == "1":
-    word_choice = (random.choice(EASY_WORDS))
-if level == "2":
-    word_choice = (random.choice(NORM_WORDS))
-if level == "3":
-    word_choice = (random.choice(HARD_WORDS))
 
 
 def mystery_word_game():
+    level = input("Select difficulty: 1 for easy, 2 for medium, 3 for hard ")
+    if level == "1":
+        word_choice = (random.choice(EASY_WORDS))
+    if level == "2":
+        word_choice = (random.choice(NORM_WORDS))
+    if level == "3":
+        word_choice = (random.choice(HARD_WORDS))
     tries = 0
     word_list = []
     test = word_choice
@@ -31,7 +31,6 @@ def mystery_word_game():
         word_list.append(x)
 
     print("Your word is " + str(len(word_list)) + " characters long.")
-    print(word_choice)
     
     correct_guesses = []
     incorrect_guesses = []
@@ -64,6 +63,16 @@ def mystery_word_game():
             print("Your word was: " + test)
             break
         print(current_progress)
+    play_again = input("Would you like to play again? y/n ")
+    play_again = play_again.lower()
+    if play_again == "y":
+        mystery_word_game()
+    elif play_again == "n":
+        print("\n\ngoodbye.")
+    else:
+        print("Incorrect input.")
+        play_again = input("Would you like to play again? y/n ")
+        play_again = play_again.lower()
 
 
 
