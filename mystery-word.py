@@ -29,7 +29,8 @@ def mystery_word_game():
     
     for x in test:
         word_list.append(x)
-    print(test)
+
+    print("Your word is " + str(len(word_list)) + " characters long.")
     
     correct_guesses = []
     incorrect_guesses = []
@@ -39,9 +40,11 @@ def mystery_word_game():
         if len(player_guess) > 1:
             print("Your guess must be one letter!")
             player_guess = input("What letter would you like to guess? ")
+        if player_guess in correct_guesses or player_guess in incorrect_guesses:
+            print("You already guessed that, try again.")
+            pass
         if player_guess not in word_list:
             tries += 1
-        
         for x in word_list: 
             if player_guess == x:
                 current_progress.append(player_guess)
