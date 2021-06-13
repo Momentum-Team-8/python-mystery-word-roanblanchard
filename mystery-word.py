@@ -55,7 +55,7 @@ def mystery_word_game():
                 current_progress.append("_")
                 incorrect_guesses.append(player_guess)
         if current_progress == word_list:
-            print("You win!! Good job.")
+            print("You win!! Good job. Your word was: " + str(word_choice))
             break
         if tries == 8:
             print("You lose!! You get nothing!")
